@@ -15,7 +15,8 @@ namespace HairSalon.Controllers
     {
       _db = db;
     }
-
+    
+    // full client list
     public ActionResult Index()
     {
       // get a list of clients from the DB, plus the stylist each belongs to
@@ -23,6 +24,27 @@ namespace HairSalon.Controllers
                             .Include(client => client.Stylist)
                             .ToList();
       return View(model);
+    }
+
+    // add client form page
+    public ActionResult Create()
+    {
+      ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "Name");
+      return View();
+    }
+
+    // add client form submission route
+    [HttpPost]
+    public ActionResult Create(Client client)
+    {
+      if (client.StylistId == 0)
+      {
+        // cannot create client with no assigned stylist
+        return RedirectToAction("Create");
+      }
+      _db.Clients.Add(client);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
     }
   }
 }
