@@ -3,8 +3,32 @@ nav#header{
 	top:0px;
 	left:0px;
 	width:100%;
-	color:#CCC;
-	background:#333;
+	background: #B92B7E;
 	padding:8px;
+	margin-bottom: 10px;
 }
 
+nav > a {
+	color: #ffffff
+}
+
+body {
+	text-align: center;
+	background-color: #F8E9F2;
+}
+
+ul {
+	list-style-type: square;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+a {
+	color: #504361;
+}
+
+a:hover {
+	color: #8670A2;
+}
