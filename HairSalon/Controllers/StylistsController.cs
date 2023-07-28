@@ -16,9 +16,25 @@ public class StylistsController : Controller
     _db = db;
   }
 
+  // stylist list
   public ActionResult Index()
   {
     List<Stylist> model = _db.Stylists.ToList();
     return View(model);
+  }
+
+  // stylist registration form
+  public ActionResult Create()
+  {
+    return View();
+  }
+
+  // stylist registration POST route
+  [HttpPost]
+  public ActionResult Create(Stylist stylist)
+  {
+    _db.Stylists.Add(stylist);
+    _db.SaveChanges();
+    return RedirectToAction("Index");
   }
 }
