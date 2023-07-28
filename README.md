@@ -37,13 +37,17 @@ also add and remove stylists and clients from the system.
     `mysql -u [your_database_login] -p [your_db_name] < allie_zhao.sql`
     - or import using a GUI database tool
 - in the `HairSalon` directory, create the file `appsettings.json`, containing the following
-    {
-      "ConnectionStrings": {
-        "DefaultConnection": "Server=[your_database_address];Port=3306;database=[your_db_name];uid=[your_db_login];pwd=[your_db_password];"
-      }
-    }
+
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=[your_database_address];Port=3306;database=[your_db_name];uid=[your_db_login];pwd=[your_db_password];"
+  }
+}
+```
+
 - substitute fields in brackets with your own database information
-- also switch port if your database is not configured to use 3306
+- also switch ports if your database is not configured to use 3306
 
 ## License
 
