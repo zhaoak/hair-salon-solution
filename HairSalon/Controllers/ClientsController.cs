@@ -40,6 +40,7 @@ namespace HairSalon.Controllers
       if (client.StylistId == 0)
       {
         // cannot create client with no assigned stylist
+        // if user tries, loop back to create form without updating DB
         return RedirectToAction("Create");
       }
       _db.Clients.Add(client);
