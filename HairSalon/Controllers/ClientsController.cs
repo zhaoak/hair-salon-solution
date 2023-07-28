@@ -46,5 +46,16 @@ namespace HairSalon.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    // client detail page
+    public ActionResult Details(int id)
+    {
+      // queries the _db object's clients list, finds the first that matches 
+      // relevant id, then returns that client
+      Client thisClient = _db.Clients
+                            .Include(client => client.Stylist)
+                            .FirstOrDefault(client => client.ClientId == id);
+      return View(thisClient);
+    }
   }
 }
