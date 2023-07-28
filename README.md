@@ -46,7 +46,7 @@ also add and remove stylists and clients from the system.
 }
 ```
 
-- substitute fields in brackets with your own database information
+- substitute fields in square brackets with your own database information
 - also switch ports if your database is not configured to use 3306
 
 ## License
