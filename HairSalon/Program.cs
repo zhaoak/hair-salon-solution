@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using ToDoList.Models;
+using HairSalon.Models;
 
-namespace ToDoList
+namespace HairSalon
 {
   class Program
   {
@@ -13,7 +13,7 @@ namespace ToDoList
 
       builder.Services.AddControllersWithViews();
 
-      builder.Services.AddDbContext<ToDoListContext>(
+      builder.Services.AddDbContext<HairSalonContext>(
           dbContextOptions => dbContextOptions
           .UseMySql(  // also works for mariadb
               builder.Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(builder.Configuration["ConnectionStrings:DefaultConnection"]
@@ -38,36 +38,3 @@ namespace ToDoList
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-// using System.IO;
-// using Microsoft.AspNetCore.Hosting;
-
-// namespace ToDoList
-// {
-//   public class Program
-//   {
-//     public static void Main(string[] args)
-//     {
-//       var host = new WebHostBuilder()
-//         .UseKestrel()
-//         .UseContentRoot(Directory.GetCurrentDirectory())
-//         .UseIISIntegration()
-//         .UseStartup<Startup>()
-//         .Build();
-
-//       host.Run();
-//     }
-//   }
-// }
